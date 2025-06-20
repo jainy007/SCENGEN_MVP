@@ -2,15 +2,15 @@
   "scenario_id": "narrow_passage_near_miss",
   "scenario_type": "narrow_passage_near_miss",
   "environment": {
-    "location_type": "urban",
-    "infrastructure": "narrow_street_with_parking",
-    "space_constraints": "narrow",
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "narrow_passage",
     "weather": "sunny",
     "time_of_day": "morning"
   },
   "ego_vehicle": {
-    "initial_speed_ms": 10.0,
-    "target_speed_ms": 12.0,
+    "initial_speed_ms": 5.0,
+    "target_speed_ms": 15.0,
     "behavior_sequence": [
       "approach_intersection",
       "detect_hazard",
@@ -22,35 +22,29 @@
   },
   "scenario_actors": [
     {
-      "type": "vehicle",
-      "id": "vehicle_1",
-      "coordinates": {
+      "vehicle_type": "passenger_car",
+      "location": {
         "x": 10.0,
         "y": 0.0,
         "z": 0.0
       },
-      "speed": 11.5,
-      "direction": "forward",
-      "color": "red"
-    },
-    {
-      "type": "vehicle",
-      "id": "vehicle_2",
-      "coordinates": {
-        "x": 20.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "speed": 0.0,
-      "direction": "reverse",
-      "color": "blue"
+      "speed_ms": 0.0,
+      "behavior_sequence": [
+        "approach_intersection",
+        "detect_hazard",
+        "emergency_brake",
+        "evade",
+        "recover"
+      ]
     }
   ],
   "critical_events": [
     {
       "trigger_sequence": [
         0,
-        2
+        1,
+        2,
+        3
       ],
       "interaction_types": [
         "vehicle_avoidance",
@@ -62,9 +56,9 @@
   ],
   "success_criteria": {
     "collision_avoidance": true,
-    "minimum_safe_distance_m": 1.0,
-    "reaction_time_s": 0.5,
-    "completion_time_s": 17.6
+    "minimum_safe_distance_m": 0.5,
+    "reaction_time_s": 1.0,
+    "completion_time_s": 19.1
   },
   "carla_specifics": {
     "recommended_map": "Town01",
@@ -75,15 +69,15 @@
         "z": 0.0
       },
       {
-        "x": 20.0,
+        "x": 10.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 2.0
       }
     ],
     "weather_preset": "sunny"
   },
   "_metadata": {
-    "source_event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_1",
+    "source_event_id": "2GTxggHXDhco2lKaT5Xyig97wuDepNrR/dangerous_event_1",
     "generation_timestamp": "unknown",
     "risk_score": 1.9000000000000001,
     "complexity": "high"

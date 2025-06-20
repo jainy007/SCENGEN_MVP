@@ -2,11 +2,11 @@
   "scenario_id": "narrow_passage_near_miss",
   "scenario_type": "narrow_passage_near_miss",
   "environment": {
-    "location_type": "urban",
-    "infrastructure": "narrow_street_with_parking",
-    "space_constraints": "narrow",
-    "weather": "sunny",
-    "time_of_day": "morning"
+    "location_type": "urban_street",
+    "infrastructure": "parking",
+    "space_constraints": "narrow_street",
+    "weather": "clear",
+    "time_of_day": "day"
   },
   "ego_vehicle": {
     "initial_speed_ms": 10.0,
@@ -22,49 +22,33 @@
   },
   "scenario_actors": [
     {
-      "type": "vehicle",
-      "id": "vehicle_1",
-      "coordinates": {
+      "actor_type": "vehicle",
+      "position": {
         "x": 10.0,
         "y": 0.0,
         "z": 0.0
       },
-      "speed": 11.5,
-      "direction": "forward",
-      "color": "red"
-    },
-    {
-      "type": "vehicle",
-      "id": "vehicle_2",
-      "coordinates": {
-        "x": 20.0,
-        "y": 0.0,
-        "z": 0.0
-      },
       "speed": 0.0,
-      "direction": "reverse",
-      "color": "blue"
+      "direction": 0.0
     }
   ],
   "critical_events": [
     {
       "trigger_sequence": [
-        0,
-        2
+        0
       ],
       "interaction_types": [
-        "vehicle_avoidance",
         "emergency_response"
       ],
-      "safety_outcome": "collision_avoidance",
+      "safety_outcome": "near miss",
       "risk_level": "high"
     }
   ],
   "success_criteria": {
     "collision_avoidance": true,
-    "minimum_safe_distance_m": 1.0,
-    "reaction_time_s": 0.5,
-    "completion_time_s": 17.6
+    "minimum_safe_distance_m": 2.0,
+    "reaction_time_s": 1.0,
+    "completion_time_s": 23.8
   },
   "carla_specifics": {
     "recommended_map": "Town01",
@@ -75,15 +59,15 @@
         "z": 0.0
       },
       {
-        "x": 20.0,
+        "x": 10.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 1.0
       }
     ],
-    "weather_preset": "sunny"
+    "weather_preset": "clear"
   },
   "_metadata": {
-    "source_event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_1",
+    "source_event_id": "1aA2LN2wTD5Z2fRPdvqmDE85eT7kf5Zo/dangerous_event_1",
     "generation_timestamp": "unknown",
     "risk_score": 1.9000000000000001,
     "complexity": "high"

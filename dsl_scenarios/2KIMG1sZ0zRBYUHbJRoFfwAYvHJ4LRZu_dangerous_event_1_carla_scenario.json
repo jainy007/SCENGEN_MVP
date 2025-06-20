@@ -1,0 +1,86 @@
+{
+  "scenario_id": "right_turn_oversteering_near_miss",
+  "scenario_type": "right_turn_oversteering_near_miss",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "narrow_street",
+    "weather": "clear",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 5.1,
+    "target_speed_ms": 9.4,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "actor_type": "vehicle",
+      "location_id": "vehicle_1",
+      "location_x": 5.0,
+      "location_y": 10.0,
+      "location_z": 0.0,
+      "speed_ms": 5.0,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "direction_z": 0.0,
+      "lane_id": 0,
+      "lane_direction": 1,
+      "vehicle_type": "car"
+    },
+    {
+      "actor_type": "pedestrian",
+      "location_id": "pedestrian_1",
+      "location_x": 10.0,
+      "location_y": 10.0,
+      "location_z": 0.0,
+      "speed_ms": 0.0,
+      "direction_x": 0.0,
+      "direction_y": 0.0,
+      "direction_z": 0.0,
+      "lane_id": 0,
+      "lane_direction": 1,
+      "pedestrian_type": "adult"
+    }
+  ],
+  "critical_events": [
+    {
+      "trigger_sequence": [
+        0
+      ],
+      "interaction_types": [
+        "vehicle_avoidance",
+        "emergency_response"
+      ],
+      "safety_outcome": "collision_avoidance",
+      "risk_level": "high"
+    }
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 1.5,
+    "reaction_time_s": 1.0,
+    "completion_time_s": 16.0
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      "vehicle_1",
+      "pedestrian_1"
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "2KIMG1sZ0zRBYUHbJRoFfwAYvHJ4LRZu/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.8999999999999995,
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "scenario_id": "right_turn_hesitation_bicycle_passing",
+  "scenario_type": "right_turn_hesitation_bicycle_passing",
+  "environment": {
+    "location_type": "mixed_traffic_zone",
+    "infrastructure": "standard_road",
+    "space_constraints": "none",
+    "weather": "clear",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 5.0,
+    "target_speed_ms": 15.0,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "type": "vehicle",
+      "name": "bicycle",
+      "location": [
+        10.0,
+        10.0
+      ],
+      "speed": 10.0
+    }
+  ],
+  "critical_events": [
+    {
+      "trigger_sequence": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "interaction_types": [
+        "bicycle_interaction",
+        "emergency_response"
+      ],
+      "safety_outcome": "vulnerable_user_proximity",
+      "risk_level": "high"
+    }
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 1.0,
+    "reaction_time_s": 0.5,
+    "completion_time_s": 18.4
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      [
+        10.0,
+        10.0
+      ],
+      [
+        10.0,
+        10.0
+      ],
+      [
+        10.0,
+        10.0
+      ],
+      [
+        10.0,
+        10.0
+      ],
+      [
+        10.0,
+        10.0
+      ],
+      [
+        10.0,
+        10.0
+      ]
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "0htBS9K6xCKaDSUd6bGlIfnaQQjbAVqe/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9,
+    "complexity": "high"
+  }
+}

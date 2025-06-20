@@ -1,0 +1,75 @@
+{
+  "scenario_id": "turn_oversteering_dangerous_driving",
+  "scenario_type": "turn_oversteering",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "high",
+    "weather": "clear",
+    "time_of_day": "day"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 8200,
+    "target_speed_ms": 15900,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "actor_type": "vehicle",
+      "actor_id": "actor1",
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "speed": 0,
+      "lane": 0,
+      "traffic_light_state": "red",
+      "behavior": "stay_in_lane"
+    }
+  ],
+  "critical_events": {
+    "trigger_sequence": [
+      0,
+      10
+    ],
+    "interaction_types": [
+      "emergency_response"
+    ],
+    "safety_outcome": "collision_avoidance",
+    "risk_level": "high"
+  },
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 5,
+    "reaction_time_s": 2,
+    "completion_time_s": 16.2
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      {
+        "location": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "speed": 8200
+      }
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "0lLkS11st5JnckGoPM8NaF8Pe6ArUx0p/dangerous_event_2",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.8999999999999997,
+    "complexity": "high"
+  }
+}

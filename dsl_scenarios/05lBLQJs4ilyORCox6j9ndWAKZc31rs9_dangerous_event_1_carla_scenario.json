@@ -1,0 +1,42 @@
+{
+  "scenario_id": "oversteer_unnessarily_dangerous_driving",
+  "scenario_type": "oversteer_unnessarily_dangerous_driving",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "none",
+    "weather": "clear",
+    "time_of_day": "daytime"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 7000.0,
+    "target_speed_ms": 12500.0,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [],
+  "critical_events": [],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 0.0,
+    "reaction_time_s": 0.0,
+    "completion_time_s": 13.8
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "05lBLQJs4ilyORCox6j9ndWAKZc31rs9/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9,
+    "complexity": "high"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "scenario_id": "string",
+  "scenario_type": "string",
+  "environment": {
+    "location_type": "string",
+    "infrastructure": "string",
+    "space_constraints": "string",
+    "weather": "string",
+    "time_of_day": "string"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": "float",
+    "target_speed_ms": "float",
+    "behavior_sequence": "array",
+    "motion_pattern": "string"
+  },
+  "scenario_actors": "array",
+  "critical_events": {
+    "trigger_sequence": "array",
+    "interaction_types": "array",
+    "safety_outcome": "string",
+    "risk_level": "string"
+  },
+  "success_criteria": {
+    "collision_avoidance": "boolean",
+    "minimum_safe_distance_m": "float",
+    "reaction_time_s": "float",
+    "completion_time_s": "float"
+  },
+  "carla_specifics": {
+    "recommended_map": "string",
+    "spawn_points": "array",
+    "weather_preset": "string"
+  },
+  "_metadata": {
+    "source_event_id": "1mQ4VuN3CZ27Xh7iXUILqKuNw1tciHrv/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9000000000000001,
+    "complexity": "high"
+  }
+}

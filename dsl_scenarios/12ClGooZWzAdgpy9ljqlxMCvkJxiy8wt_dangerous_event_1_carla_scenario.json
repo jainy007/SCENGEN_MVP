@@ -1,0 +1,103 @@
+{
+  "scenario_id": "narrow_passage_near_miss",
+  "scenario_type": "narrow_passage_near_miss",
+  "environment": {
+    "location_type": "urban",
+    "infrastructure": "standard_road",
+    "space_constraints": "narrow_passage",
+    "weather": "clear",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 10.0,
+    "target_speed_ms": 10.0,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    "vehicle_1",
+    "vehicle_2",
+    "pedestrian_1",
+    "cyclist_1"
+  ],
+  "critical_events": [
+    [
+      "approach_situation",
+      "vehicle_avoidance",
+      "emergency_response",
+      "close_vehicle_proximity"
+    ],
+    [
+      "emergency_braking",
+      "collision_avoidance",
+      "resume_normal_operation"
+    ]
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 0.5,
+    "reaction_time_s": 0.5,
+    "completion_time_s": 14.0
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      {
+        "x": 0,
+        "y": 0,
+        "type": "vehicle",
+        "id": "vehicle_1",
+        "model": "car",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "z": 0.0
+        },
+        "speed": 10.0,
+        "direction": 1.0,
+        "lane": 0
+      },
+      {
+        "x": 10,
+        "y": 0,
+        "type": "pedestrian",
+        "id": "pedestrian_1",
+        "coordinates": {
+          "x": 10,
+          "y": 0,
+          "z": 0.0
+        },
+        "speed": 0.0,
+        "direction": 1.0,
+        "lane": 1
+      },
+      {
+        "x": 20,
+        "y": 0,
+        "type": "cyclist",
+        "id": "cyclist_1",
+        "coordinates": {
+          "x": 20,
+          "y": 0,
+          "z": 0.0
+        },
+        "speed": 0.0,
+        "direction": 1.0,
+        "lane": 2
+      }
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "12ClGooZWzAdgpy9ljqlxMCvkJxiy8wt/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9000000000000001,
+    "complexity": "high"
+  }
+}

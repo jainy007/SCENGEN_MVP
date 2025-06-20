@@ -1,0 +1,87 @@
+{
+  "scenario_id": "left_oversteering_turn_near_miss_with_parked_car_on_right_curb",
+  "scenario_type": "left_oversteering_turn_near_miss_with_parked_car_on_right_curb",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "none",
+    "weather": "clear",
+    "time_of_day": "day"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 8.3,
+    "target_speed_ms": 22.4,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    "vehicle_1",
+    "pedestrian_1",
+    "cyclist_1",
+    "vehicle_2",
+    "pedestrian_2",
+    "cyclist_2"
+  ],
+  "critical_events": [
+    "approach_situation",
+    "emergency_braking",
+    "collision_avoidance",
+    "resume_normal_operation"
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 10.0,
+    "reaction_time_s": 2.0,
+    "completion_time_s": 16.2
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      [
+        -50.0,
+        40.0
+      ],
+      [
+        50.0,
+        40.0
+      ],
+      [
+        -50.0,
+        30.0
+      ],
+      [
+        50.0,
+        30.0
+      ],
+      [
+        -50.0,
+        20.0
+      ],
+      [
+        50.0,
+        20.0
+      ],
+      [
+        -50.0,
+        10.0
+      ],
+      [
+        50.0,
+        10.0
+      ]
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "2BkCiI45PU2Gtj9716t6V3UccKKAsxkD/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.8999999999999997,
+    "complexity": "high"
+  }
+}

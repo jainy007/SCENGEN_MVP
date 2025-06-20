@@ -1,0 +1,112 @@
+{
+  "scenario_id": "narrow_passage_near_miss",
+  "scenario_type": "narrow_passage_near_miss",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "high",
+    "weather": "clear",
+    "time_of_day": "day"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 12.0,
+    "target_speed_ms": 18.0,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "type": "vehicle",
+      "id": 1,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "velocity": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "acceleration": [
+        0.0,
+        -2.0,
+        0.0
+      ],
+      "lane": 0,
+      "speed_limit_ms": 30.0,
+      "vehicle_class": "passenger_car"
+    },
+    {
+      "type": "pedestrian",
+      "id": 2,
+      "position": [
+        10.0,
+        0.0,
+        0.0
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "acceleration": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lane": 0,
+      "speed_limit_ms": 3.0,
+      "pedestrian_type": "adult"
+    }
+  ],
+  "critical_events": [
+    {
+      "trigger_sequence": [
+        1,
+        2,
+        3
+      ],
+      "interaction_types": [
+        "vehicle_avoidance",
+        "emergency_response"
+      ],
+      "safety_outcome": "collision_avoidance",
+      "risk_level": "high"
+    }
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 2.0,
+    "reaction_time_s": 1.0,
+    "completion_time_s": 18.4
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        10.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "0cfNzxkFwK3x3JB9HpcKIqoRCztSAreo/dangerous_event_2",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9,
+    "complexity": "high"
+  }
+}

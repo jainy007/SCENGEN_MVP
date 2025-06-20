@@ -1,0 +1,110 @@
+{
+  "scenario_id": "narrow_passage_near_miss",
+  "scenario_type": "narrow_passage_near_miss",
+  "environment": {
+    "location_type": "urban",
+    "infrastructure": "standard_road",
+    "space_constraints": "narrow passage",
+    "weather": "sunny",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 8.5,
+    "target_speed_ms": 12.5,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "actor_type": "vehicle",
+      "actor_id": "actor1",
+      "actor_position": [
+        10.0,
+        0.0,
+        0.0
+      ],
+      "actor_speed": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "actor_size": [
+        3.0,
+        1.5,
+        1.5
+      ],
+      "actor_lane": 1,
+      "actor_direction": 1.0
+    },
+    {
+      "actor_type": "pedestrian",
+      "actor_id": "actor2",
+      "actor_position": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "actor_speed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actor_size": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "actor_lane": -1,
+      "actor_direction": -1.0
+    }
+  ],
+  "critical_events": {
+    "trigger_sequence": [
+      0,
+      2,
+      3
+    ],
+    "interaction_types": [
+      "approach_situation",
+      "decelerate_to_stop",
+      "emergency_braking",
+      "resume_normal_operation"
+    ],
+    "safety_outcome": "collision_avoidance",
+    "risk_level": "high"
+  },
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 1.5,
+    "reaction_time_s": 0.5,
+    "completion_time_s": 13.5
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      [
+        10.0,
+        0.0,
+        0.0
+      ],
+      [
+        15.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "weather_preset": "sunny"
+  },
+  "_metadata": {
+    "source_event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_3",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.8999999999999997,
+    "complexity": "high"
+  }
+}

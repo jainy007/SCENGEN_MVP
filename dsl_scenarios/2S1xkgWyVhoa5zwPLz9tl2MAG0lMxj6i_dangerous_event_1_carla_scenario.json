@@ -1,0 +1,73 @@
+{
+  "scenario_id": "nervous_right_turn",
+  "scenario_type": "nervous_right_turn",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "low",
+    "weather": "clear",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 5800,
+    "target_speed_ms": 11000,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "type": "vehicle",
+      "location": {
+        "x": 100,
+        "y": 100,
+        "z": 0
+      },
+      "speed_ms": 10000
+    }
+  ],
+  "critical_events": [
+    {
+      "trigger_sequence": [
+        0
+      ],
+      "interaction_types": [
+        "emergency_response"
+      ],
+      "safety_outcome": "collision_avoided",
+      "risk_level": "high"
+    }
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 2,
+    "reaction_time_s": 1,
+    "completion_time_s": 21
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      {
+        "location": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": 0,
+        "type": "vehicle"
+      }
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "2S1xkgWyVhoa5zwPLz9tl2MAG0lMxj6i/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9000000000000001,
+    "complexity": "high"
+  }
+}

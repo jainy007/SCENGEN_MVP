@@ -1,0 +1,97 @@
+{
+  "scenario_id": "avoid_traffic_cones",
+  "scenario_type": "traffic_cones_avoided",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "standard_road",
+    "space_constraints": "low",
+    "weather": "sunny",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 5.4,
+    "target_speed_ms": 10.7,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "type": "vehicle",
+      "id": "vehicle1",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "speed_ms": 5.4,
+      "lane": 0,
+      "road_id": "road1",
+      "color": "red"
+    },
+    {
+      "type": "vehicle",
+      "id": "vehicle2",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "speed_ms": 5.4,
+      "lane": 1,
+      "road_id": "road1",
+      "color": "blue"
+    },
+    {
+      "type": "pedestrian",
+      "id": "pedestrian1",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "speed_ms": 0,
+      "lane": null,
+      "road_id": "road1",
+      "color": "green"
+    }
+  ],
+  "critical_events": {
+    "trigger_sequence": [
+      1,
+      2,
+      3
+    ],
+    "interaction_types": [
+      "emergency_response",
+      "emergency_response",
+      "emergency_response"
+    ],
+    "safety_outcome": "collision_avoidance",
+    "risk_level": "high"
+  },
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 2.0,
+    "reaction_time_s": 2.0,
+    "completion_time_s": 20.4
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "lane": 0,
+        "road_id": "road1"
+      }
+    ],
+    "weather_preset": "sunny"
+  },
+  "_metadata": {
+    "source_event_id": "0OF3lawgf9vsILBoZVT27MF8zDNuq7zh/dangerous_event_1",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9,
+    "complexity": "high"
+  }
+}

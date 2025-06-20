@@ -1,0 +1,130 @@
+{
+  "scenario_id": "1",
+  "scenario_type": "stop_sign_overshoot",
+  "environment": {
+    "location_type": "residential",
+    "infrastructure": "stop_sign_intersection",
+    "space_constraints": "none",
+    "weather": "clear",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 10.2,
+    "target_speed_ms": 10.2,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "type": "vehicle",
+      "location": [
+        0,
+        0,
+        0
+      ],
+      "speed": 0,
+      "behavior": "traffic_control_compliance"
+    },
+    {
+      "type": "vehicle",
+      "location": [
+        20,
+        0,
+        0
+      ],
+      "speed": 10.2,
+      "behavior": "traffic_control_compliance"
+    },
+    {
+      "type": "vehicle",
+      "location": [
+        40,
+        0,
+        0
+      ],
+      "speed": 0,
+      "behavior": "emergency_response"
+    }
+  ],
+  "critical_events": [
+    {
+      "trigger_sequence": [
+        0
+      ],
+      "interaction_types": [
+        "traffic_control_compliance"
+      ],
+      "safety_outcome": "collision_avoidance",
+      "risk_level": "high"
+    },
+    {
+      "trigger_sequence": [
+        1
+      ],
+      "interaction_types": [
+        "traffic_control_compliance",
+        "emergency_response"
+      ],
+      "safety_outcome": "collision_avoidance",
+      "risk_level": "high"
+    },
+    {
+      "trigger_sequence": [
+        2
+      ],
+      "interaction_types": [
+        "emergency_response"
+      ],
+      "safety_outcome": "collision_avoidance",
+      "risk_level": "high"
+    }
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 0,
+    "reaction_time_s": 0,
+    "completion_time_s": 16.6
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      {
+        "location": [
+          0,
+          0,
+          0
+        ],
+        "behavior": "traffic_control_compliance"
+      },
+      {
+        "location": [
+          20,
+          0,
+          0
+        ],
+        "behavior": "traffic_control_compliance"
+      },
+      {
+        "location": [
+          40,
+          0,
+          0
+        ],
+        "behavior": "emergency_response"
+      }
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "12ADHiKS291vbdKttFbQM5HvYZiMpXqq/dangerous_event_2",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.9,
+    "complexity": "high"
+  }
+}

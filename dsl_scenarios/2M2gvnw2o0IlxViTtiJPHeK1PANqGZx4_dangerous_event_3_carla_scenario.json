@@ -1,0 +1,77 @@
+{
+  "scenario_id": "narrow_passage_near_miss",
+  "scenario_type": "narrow_passage_near_miss",
+  "environment": {
+    "location_type": "Town01",
+    "infrastructure": "standard_road",
+    "space_constraints": "narrow_passage",
+    "weather": "clear",
+    "time_of_day": "morning"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 10.0,
+    "target_speed_ms": 15.0,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    "pedestrian_1",
+    "pedestrian_2",
+    "cyclist_1",
+    "cyclist_2"
+  ],
+  "critical_events": [
+    [
+      "approach_situation",
+      "pedestrian_interaction",
+      "vulnerable_user_proximity",
+      "high"
+    ],
+    [
+      "emergency_braking",
+      "pedestrian_interaction",
+      "emergency_response",
+      "high"
+    ],
+    [
+      "yield_to_vulnerable_user",
+      "pedestrian_interaction",
+      "emergency_response",
+      "high"
+    ],
+    [
+      "resume_normal_operation",
+      "pedestrian_interaction",
+      "emergency_response",
+      "high"
+    ]
+  ],
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 1.0,
+    "reaction_time_s": 0.5,
+    "completion_time_s": 25.5
+  },
+  "carla_specifics": {
+    "recommended_map": "Town01",
+    "spawn_points": [
+      "pedestrian_1",
+      "pedestrian_2",
+      "cyclist_1",
+      "cyclist_2"
+    ],
+    "weather_preset": "clear"
+  },
+  "_metadata": {
+    "source_event_id": "2M2gvnw2o0IlxViTtiJPHeK1PANqGZx4/dangerous_event_3",
+    "generation_timestamp": "unknown",
+    "risk_score": 1.8999999999999997,
+    "complexity": "high"
+  }
+}
