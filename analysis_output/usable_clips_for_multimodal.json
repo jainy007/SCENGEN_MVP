@@ -1,0 +1,358 @@
+[
+  {
+    "hash_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy",
+    "session_path": "/mnt/db/av_dataset/04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 177,
+        "perfect_alignment": true
+      },
+      {
+        "event_name": "dangerous_event_3",
+        "lidar_files_count": 135,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 2
+  },
+  {
+    "hash_id": "05lBLQJs4ilyORCox6j9ndWAKZc31rs9",
+    "session_path": "/mnt/db/av_dataset/05lBLQJs4ilyORCox6j9ndWAKZc31rs9__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 138,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "07YOTznatmYypvQYpzviEcU3yGPsyaGg",
+    "session_path": "/mnt/db/av_dataset/07YOTznatmYypvQYpzviEcU3yGPsyaGg__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 75,
+        "perfect_alignment": true
+      },
+      {
+        "event_name": "dangerous_event_3",
+        "lidar_files_count": 314,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 2
+  },
+  {
+    "hash_id": "0CjqAXeTID58UXtezwdAag5zt6bpsKFp",
+    "session_path": "/mnt/db/av_dataset/0CjqAXeTID58UXtezwdAag5zt6bpsKFp__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 302,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0OF3lawgf9vsILBoZVT27MF8zDNuq7zh",
+    "session_path": "/mnt/db/av_dataset/0OF3lawgf9vsILBoZVT27MF8zDNuq7zh__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 203,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0Pl6cyE1PWIIFx3ldUI1C0sP8H5qpRp6",
+    "session_path": "/mnt/db/av_dataset/0Pl6cyE1PWIIFx3ldUI1C0sP8H5qpRp6__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 179,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0RRXOItl29gFaocqQW297gkzqmpP0mog",
+    "session_path": "/mnt/db/av_dataset/0RRXOItl29gFaocqQW297gkzqmpP0mog__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 160,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0WHfUzbQi8mopDFgQ7BH7lGjgCEygaoN",
+    "session_path": "/mnt/db/av_dataset/0WHfUzbQi8mopDFgQ7BH7lGjgCEygaoN__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 280,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0Zs4IX50w6IbmSGnMBo0dIUyi2fpbgBF",
+    "session_path": "/mnt/db/av_dataset/0Zs4IX50w6IbmSGnMBo0dIUyi2fpbgBF__Winter_2021",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 160,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0cfNzxkFwK3x3JB9HpcKIqoRCztSAreo",
+    "session_path": "/mnt/db/av_dataset/0cfNzxkFwK3x3JB9HpcKIqoRCztSAreo__Winter_2021",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 133,
+        "perfect_alignment": true
+      },
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 184,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 2
+  },
+  {
+    "hash_id": "0htBS9K6xCKaDSUd6bGlIfnaQQjbAVqe",
+    "session_path": "/mnt/db/av_dataset/0htBS9K6xCKaDSUd6bGlIfnaQQjbAVqe__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 184,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "0lLkS11st5JnckGoPM8NaF8Pe6ArUx0p",
+    "session_path": "/mnt/db/av_dataset/0lLkS11st5JnckGoPM8NaF8Pe6ArUx0p__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 161,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "12ADHiKS291vbdKttFbQM5HvYZiMpXqq",
+    "session_path": "/mnt/db/av_dataset/12ADHiKS291vbdKttFbQM5HvYZiMpXqq__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 167,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "12ClGooZWzAdgpy9ljqlxMCvkJxiy8wt",
+    "session_path": "/mnt/db/av_dataset/12ClGooZWzAdgpy9ljqlxMCvkJxiy8wt__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 140,
+        "perfect_alignment": true
+      },
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 158,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 2
+  },
+  {
+    "hash_id": "15eb911365cc45e897494de6a5356092",
+    "session_path": "/mnt/db/av_dataset/15eb911365cc45e897494de6a5356092__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 209,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "184EJJzojrJ10AgJsjd5ENB4Ef9hpDnn",
+    "session_path": "/mnt/db/av_dataset/184EJJzojrJ10AgJsjd5ENB4Ef9hpDnn__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 127,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "18qGbmGQLzc7DwlN5XkurfMXpLCimupL",
+    "session_path": "/mnt/db/av_dataset/18qGbmGQLzc7DwlN5XkurfMXpLCimupL__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 220,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "1aA2LN2wTD5Z2fRPdvqmDE85eT7kf5Zo",
+    "session_path": "/mnt/db/av_dataset/1aA2LN2wTD5Z2fRPdvqmDE85eT7kf5Zo__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 238,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "1mQ4VuN3CZ27Xh7iXUILqKuNw1tciHrv",
+    "session_path": "/mnt/db/av_dataset/1mQ4VuN3CZ27Xh7iXUILqKuNw1tciHrv__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 150,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "20dec8c7eaa54f6c98b6ab29382464f1",
+    "session_path": "/mnt/db/av_dataset/20dec8c7eaa54f6c98b6ab29382464f1__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 204,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2BkCiI45PU2Gtj9716t6V3UccKKAsxkD",
+    "session_path": "/mnt/db/av_dataset/2BkCiI45PU2Gtj9716t6V3UccKKAsxkD__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 162,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2DYjREaZgWJd5xYP6C76omNR1GNdtIys",
+    "session_path": "/mnt/db/av_dataset/2DYjREaZgWJd5xYP6C76omNR1GNdtIys__Spring_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 267,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2E8su1EVHLnvOShfJ4HrSSxwH46hNd3E",
+    "session_path": "/mnt/db/av_dataset/2E8su1EVHLnvOShfJ4HrSSxwH46hNd3E__Summer_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 346,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2GTxggHXDhco2lKaT5Xyig97wuDepNrR",
+    "session_path": "/mnt/db/av_dataset/2GTxggHXDhco2lKaT5Xyig97wuDepNrR__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 192,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2IVIm4FhjMsL77DEo3c6v0QhMNFfsndj",
+    "session_path": "/mnt/db/av_dataset/2IVIm4FhjMsL77DEo3c6v0QhMNFfsndj__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_2",
+        "lidar_files_count": 117,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2KIMG1sZ0zRBYUHbJRoFfwAYvHJ4LRZu",
+    "session_path": "/mnt/db/av_dataset/2KIMG1sZ0zRBYUHbJRoFfwAYvHJ4LRZu__Winter_2021",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 160,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2M2gvnw2o0IlxViTtiJPHeK1PANqGZx4",
+    "session_path": "/mnt/db/av_dataset/2M2gvnw2o0IlxViTtiJPHeK1PANqGZx4__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_3",
+        "lidar_files_count": 234,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  },
+  {
+    "hash_id": "2S1xkgWyVhoa5zwPLz9tl2MAG0lMxj6i",
+    "session_path": "/mnt/db/av_dataset/2S1xkgWyVhoa5zwPLz9tl2MAG0lMxj6i__Autumn_2020",
+    "usable_events": [
+      {
+        "event_name": "dangerous_event_1",
+        "lidar_files_count": 208,
+        "perfect_alignment": true
+      }
+    ],
+    "total_events": 1
+  }
+]

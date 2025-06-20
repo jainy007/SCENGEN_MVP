@@ -1,0 +1,47 @@
+{
+  "scenario_type": "Aggressive Stopping",
+  "risk_level": 0.85,
+  "actors": [
+    "ego_vehicle",
+    "other_actor"
+  ],
+  "critical_events": [
+    "stop sine overshoot"
+  ],
+  "environmental_factors": {
+    "road_type": "urban/highway/residential",
+    "traffic_conditions": "light/moderate/heavy",
+    "weather": "clear/rain/fog",
+    "visibility": "good/poor/limited"
+  },
+  "motion_patterns": {
+    "ego_vehicle_behavior": "aggressive",
+    "other_actor_behavior": "normal",
+    "interaction_type": "near_miss"
+  },
+  "scenario_parameters": {
+    "initial_speed_ego": 10.8,
+    "event_duration": 13.5,
+    "critical_distance": 25.0,
+    "time_to_collision": 3.0
+  },
+  "carla_generation_hints": {
+    "suggested_map": "Town03",
+    "spawn_configuration": "intersection",
+    "weather_preset": "ClearNoon",
+    "traffic_density": "medium"
+  },
+  "_metadata": {
+    "event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_3",
+    "generation_timestamp": 1750368047.543137,
+    "generation_time_seconds": 5.078462600708008,
+    "model_used": "Mistral-7B",
+    "source_data": {
+      "hash_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy",
+      "event_name": "dangerous_event_3",
+      "duration_seconds": 13.5,
+      "risk_score": 1.8999999999999997,
+      "annotation": "stop sine overshoot"
+    }
+  }
+}

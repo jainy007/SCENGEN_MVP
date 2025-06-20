@@ -1,0 +1,27 @@
+{
+  "event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_1",
+  "gif_filename": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy_dangerous_event_1_bev.gif",
+  "bev_analysis": {
+    "total_frames_analyzed": 30,
+    "bev_range_meters": 100,
+    "detected_object_types": [
+      "buildings",
+      "other_vehicles",
+      "vegetation",
+      "road_surface",
+      "traffic_signs",
+      "pedestrians",
+      "unknown"
+    ],
+    "spatial_characteristics": {},
+    "temporal_progression": []
+  },
+  "lidar_insights": {
+    "scene_complexity": "high",
+    "environment_type": "urban",
+    "traffic_infrastructure_detected": true,
+    "total_lidar_files": 177,
+    "annotation": "narrow near miss",
+    "total_traffic_sign_points": 1570
+  }
+}
