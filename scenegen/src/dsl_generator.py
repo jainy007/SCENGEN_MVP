@@ -30,7 +30,6 @@ from pathlib import Path
 from data_extractor import TriageBrainDataExtractor
 from fusion_analyzer import BEVFusionAnalyzer
 from utils.model_loader import load_mistral_model, unload_model
-import pandas as pd
 
 # Import LLM handling from warmup
 sys.path.append("scenegen")
@@ -94,7 +93,7 @@ class DSLGenerator:
         motion_behavior = semantic_features.get("motion_behavior", {})
         motion_pattern = semantic_features.get("motion_timeline", {}).get("motion_pattern", "unknown")
         
-        # Key motion stats
+        # Key motion stats - FIX: Ensure proper units
         avg_speed = motion_behavior.get("velocity_stats", {}).get("mean_ms", 0)
         max_speed = motion_behavior.get("velocity_stats", {}).get("max_ms", 0)
         has_emergency_braking = motion_behavior.get("motion_characteristics", {}).get("has_emergency_braking", False)
@@ -118,8 +117,8 @@ SCENARIO ANALYSIS:
 - Complexity: {complexity}
 
 MOTION PROFILE:
-- Average Speed: {avg_speed:.1f} m/s
-- Maximum Speed: {max_speed:.1f} m/s  
+- Average Speed: {avg_speed:.1f} m/s (meters per second)
+- Maximum Speed: {max_speed:.1f} m/s (meters per second)
 - Motion Pattern: {motion_pattern}
 - Emergency Braking: {has_emergency_braking}
 - High Jerk Events: {has_high_jerk}
@@ -133,17 +132,20 @@ Generate a complete CARLA scenario in this JSON format:
 
 {json.dumps(self.dsl_template, indent=2)}
 
-REQUIREMENTS:
-1. scenario_type: Use descriptive name like "narrow_passage_near_miss" or "stop_sign_overshoot_with_cyclist"
-2. behavior_sequence: List ego actions ["approach_intersection", "detect_hazard", "emergency_brake", "evade", "recover"]
-3. scenario_actors: Include other vehicles, pedestrians, cyclists based on interactions
-4. carla_specifics: Recommend appropriate CARLA map and spawn points
-5. Use realistic values: speeds in m/s, distances in meters, times in seconds
-6. Make it executable: every field should have concrete values for CARLA
+CRITICAL REQUIREMENTS:
+1. UNITS: All speeds in m/s (range 0-30), distances in meters (0-200), times in seconds (0-60)
+2. REALISTIC VALUES: initial_speed_ms and target_speed_ms must be reasonable (e.g., 5.0-15.0 m/s)
+3. NO EXTRA TEXT: Respond with ONLY valid JSON. No explanations, examples, or additional text
+4. END IMMEDIATELY: Stop after the closing brace }}
 
-Focus on the dangerous scenario recreation, not just description. This DSL will be used to generate Python code for CARLA.
+SCENARIO SPECIFICATIONS:
+- scenario_type: Use descriptive name like "narrow_passage_near_miss" or "stop_sign_overshoot_with_cyclist"
+- behavior_sequence: List ego actions ["approach_intersection", "detect_hazard", "emergency_brake", "evade", "recover"]
+- scenario_actors: Include other vehicles, pedestrians, cyclists based on interactions
+- carla_specifics: Use real CARLA map names like "Town01", "Town02", "Town03", "Town04", "Town05"
+- All coordinates in meters, speeds in m/s (NOT km/h or other units)
 
-Respond with valid JSON only:"""
+JSON ONLY - NO ADDITIONAL TEXT:"""
 
         return prompt
     
@@ -268,14 +270,27 @@ Respond with valid JSON only:"""
         if not dsl_result:
             return
         
+        # Safe extraction with proper handling of different data structures
+        environment = dsl_result.get('environment', {})
+        ego_vehicle = dsl_result.get('ego_vehicle', {})
+        scenario_actors = dsl_result.get('scenario_actors', [])
+        critical_events = dsl_result.get('critical_events', {})
+        carla_specifics = dsl_result.get('carla_specifics', {})
+        
+        # Handle critical_events - could be dict or list
+        if isinstance(critical_events, list):
+            risk_level = critical_events[0].get('risk_level', 'unknown') if critical_events else 'unknown'
+        else:
+            risk_level = critical_events.get('risk_level', 'unknown')
+        
         cprint(f"\n📋 DSL SUMMARY:", "cyan", attrs=["bold"])
         cprint(f"  Scenario: {dsl_result.get('scenario_type', 'unknown')}", "white")
-        cprint(f"  Environment: {dsl_result.get('environment', {}).get('location_type', 'unknown')}", "white")
-        cprint(f"  Infrastructure: {dsl_result.get('environment', {}).get('infrastructure', 'unknown')}", "white")
-        cprint(f"  Ego Behavior: {dsl_result.get('ego_vehicle', {}).get('behavior_sequence', [])}", "white")
-        cprint(f"  Actors: {len(dsl_result.get('scenario_actors', []))}", "white")
-        cprint(f"  Risk Level: {dsl_result.get('critical_events', {}).get('risk_level', 'unknown')}", "white")
-        cprint(f"  CARLA Map: {dsl_result.get('carla_specifics', {}).get('recommended_map', 'unknown')}", "white")
+        cprint(f"  Environment: {environment.get('location_type', 'unknown')}", "white")
+        cprint(f"  Infrastructure: {environment.get('infrastructure', 'unknown')}", "white")
+        cprint(f"  Ego Behavior: {ego_vehicle.get('behavior_sequence', [])}", "white")
+        cprint(f"  Actors: {len(scenario_actors)}", "white")
+        cprint(f"  Risk Level: {risk_level}", "white")
+        cprint(f"  CARLA Map: {carla_specifics.get('recommended_map', 'unknown')}", "white")
 
 
 def test_dsl_generator():
