@@ -1,12 +1,12 @@
 {
-  "event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_1",
-  "gif_path": "bev_visualizations/gifs/04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy_dangerous_event_1_optimized_bev.gif",
+  "event_id": "2DYjREaZgWJd5xYP6C76omNR1GNdtIys/dangerous_event_1",
+  "gif_path": "bev_visualizations/gifs/2DYjREaZgWJd5xYP6C76omNR1GNdtIys_dangerous_event_1_optimized_bev.gif",
   "processing_summary": {
     "total_frames_processed": 25,
     "yolo_enabled": true,
     "multiprocessing_enabled": true,
     "cache_enabled": true,
-    "processing_timestamp": "2025-06-20T01:15:38.491358"
+    "processing_timestamp": "2025-06-20T01:17:58.976388"
   },
   "performance_metrics": {
     "frames_per_second": 25.0,

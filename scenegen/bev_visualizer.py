@@ -616,6 +616,7 @@ def main():
     parser.add_argument("--random", action="store_true", help="Visualize random event")
     parser.add_argument("--max_frames", type=int, default=25, help="Max frames (default: 25)")
     parser.add_argument("--list", action="store_true", help="List all events")
+    parser.add_argument("--all", action="store_true", help="Visualize all events")
     parser.add_argument("--workers", type=int, help="Number of worker processes")
     
     args = parser.parse_args()
@@ -641,6 +642,95 @@ def main():
                 cprint(f"\n💡 Showing first 20 of {len(all_events)} total events", "blue")
             
             return
+        
+        elif args.all:
+            # Process all events in sequence
+            all_events = visualizer.get_all_events()
+            if not all_events:
+                cprint("❌ No events available", "red")
+                return
+            
+            cprint(f"\n🚀 PROCESSING ALL {len(all_events)} EVENTS", "cyan", attrs=["bold"])
+            cprint(f"    Max frames per event: {args.max_frames}", "white")
+            cprint(f"    Workers: {visualizer.processor.max_workers}", "white")
+            
+            successful_gifs = []
+            failed_events = []
+            total_start_time = time.time()
+            
+            for i, event in enumerate(all_events, 1):
+                cprint(f"\n📊 Processing {i}/{len(all_events)}: {event['event_id']}", "yellow", attrs=["bold"])
+                cprint(f"    LiDAR files: {event['lidar_files_count']}", "white")
+                
+                try:
+                    start_time = time.time()
+                    gif_path = visualizer.generate_bev_gif(event, args.max_frames)
+                    process_time = time.time() - start_time
+                    
+                    if gif_path and os.path.exists(gif_path):
+                        size_mb = os.path.getsize(gif_path) / 1024 / 1024
+                        successful_gifs.append({
+                            'event_id': event['event_id'],
+                            'gif_path': gif_path,
+                            'size_mb': size_mb,
+                            'process_time': process_time,
+                            'lidar_files': event['lidar_files_count']
+                        })
+                        cprint(f"    ✅ Success: {gif_path} ({size_mb:.1f}MB, {process_time:.1f}s)", "green")
+                    else:
+                        failed_events.append(event['event_id'])
+                        cprint(f"    ❌ Failed: No GIF generated", "red")
+                        
+                except Exception as e:
+                    failed_events.append(event['event_id'])
+                    cprint(f"    ❌ Failed: {e}", "red")
+                
+                # Show progress
+                remaining = len(all_events) - i
+                if remaining > 0:
+                    elapsed = time.time() - total_start_time
+                    avg_time = elapsed / i
+                    eta_seconds = avg_time * remaining
+                    eta_minutes = eta_seconds / 60
+                    cprint(f"    ⏰ ETA: {eta_minutes:.1f} minutes remaining", "blue")
+            
+            # Final summary
+            total_time = time.time() - total_start_time
+            cprint(f"\n📋 BATCH PROCESSING COMPLETE", "cyan", attrs=["bold"])
+            cprint(f"    Total time: {total_time/60:.1f} minutes", "white")
+            cprint(f"    Successful: {len(successful_gifs)}/{len(all_events)}", "green")
+            cprint(f"    Failed: {len(failed_events)}", "red")
+            
+            if successful_gifs:
+                total_size = sum(gif['size_mb'] for gif in successful_gifs)
+                avg_time = sum(gif['process_time'] for gif in successful_gifs) / len(successful_gifs)
+                
+                cprint(f"\n📊 STATISTICS:", "blue")
+                cprint(f"    Total GIF size: {total_size:.1f}MB", "white")
+                cprint(f"    Average processing time: {avg_time:.1f}s per event", "white")
+                cprint(f"    Processing speed: {len(successful_gifs)/(total_time/60):.1f} events/minute", "white")
+                
+                # Show top largest files
+                successful_gifs.sort(key=lambda x: x['size_mb'], reverse=True)
+                cprint(f"\n📁 Largest GIFs:", "blue")
+                for gif in successful_gifs[:5]:
+                    cprint(f"    {gif['size_mb']:5.1f}MB - {gif['event_id']}", "white")
+                
+                # Show fastest/slowest processing
+                successful_gifs.sort(key=lambda x: x['process_time'])
+                fastest = successful_gifs[0]
+                slowest = successful_gifs[-1]
+                cprint(f"\n⚡ Processing time range:", "blue")
+                cprint(f"    Fastest: {fastest['process_time']:.1f}s - {fastest['event_id']}", "green")
+                cprint(f"    Slowest: {slowest['process_time']:.1f}s - {slowest['event_id']}", "yellow")
+            
+            if failed_events:
+                cprint(f"\n❌ Failed events:", "red")
+                for event_id in failed_events:
+                    cprint(f"    {event_id}", "white")
+            
+            cprint(f"\n📁 All GIFs saved in: bev_visualizations/gifs/", "blue")
+            cprint(f"📋 Analysis files in: bev_visualizations/analysis/", "blue")
             
         elif args.event_id:
             # Process specific event
@@ -683,10 +773,11 @@ def main():
                 cprint(f"📁 GIF: {gif_path}", "blue")
                 cprint(f"⚡ Processing speed: {args.max_frames/total_time:.1f} frames/sec", "green")
         else:
-            cprint("❌ Please specify --event_id, --random, or --list", "red")
+            cprint("❌ Please specify --event_id, --random, --list, or --all", "red")
             cprint("\n💡 Optimized examples:", "blue")
             cprint("   python bev_visualizer_optimized.py --random", "white")
-            cprint("   python bev_visualizer_optimized.py --random --max_frames 30 --workers 8", "white")
+            cprint("   python bev_visualizer_optimized.py --all --max_frames 15", "white")
+            cprint("   python bev_visualizer_optimized.py --all --max_frames 20 --workers 8", "white")
             
     except KeyboardInterrupt:
         cprint("\n⏹️  Processing interrupted", "yellow")

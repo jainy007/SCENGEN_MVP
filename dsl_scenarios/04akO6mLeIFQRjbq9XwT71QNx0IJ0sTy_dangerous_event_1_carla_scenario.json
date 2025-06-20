@@ -1,0 +1,125 @@
+{
+  "scenario_id": "narrow_passage_near_miss",
+  "scenario_type": "narrow_passage_near_miss",
+  "environment": {
+    "location_type": "urban_street",
+    "infrastructure": "narrow_street_with_parking",
+    "space_constraints": "narrow",
+    "weather": "sunny",
+    "time_of_day": "day"
+  },
+  "ego_vehicle": {
+    "initial_speed_ms": 6000,
+    "target_speed_ms": 11500,
+    "behavior_sequence": [
+      "approach_intersection",
+      "detect_hazard",
+      "emergency_brake",
+      "evade",
+      "recover"
+    ],
+    "motion_pattern": "low_speed_navigation"
+  },
+  "scenario_actors": [
+    {
+      "type": "vehicle",
+      "id": "vehicle_1",
+      "location": [
+        20.0,
+        5.0,
+        0.0
+      ],
+      "speed": 10.0,
+      "lane": 0,
+      "direction": 1,
+      "vehicle_type": "car"
+    },
+    {
+      "type": "pedestrian",
+      "id": "pedestrian_1",
+      "location": [
+        18.5,
+        5.0,
+        0.0
+      ],
+      "speed": 0.0,
+      "lane": 1,
+      "direction": -1,
+      "pedestrian_type": "adult"
+    }
+  ],
+  "critical_events": {
+    "trigger_sequence": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "interaction_types": [
+      "vehicle_avoidance",
+      "emergency_response"
+    ],
+    "safety_outcome": "collision_avoidance",
+    "risk_level": "high"
+  },
+  "success_criteria": {
+    "collision_avoidance": true,
+    "minimum_safe_distance_m": 2.0,
+    "reaction_time_s": 1.0,
+    "completion_time_s": 17.6
+  },
+  "carla_specifics": {
+    "recommended_map": "urban_street_map",
+    "spawn_points": [
+      [
+        15.0,
+        5.0,
+        0.0
+      ],
+      [
+        10.0,
+        5.0,
+        0.0
+      ],
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        0.0,
+        5.0,
+        0.0
+      ],
+      [
+        10.0,
+        10.0,
+        0.0
+      ],
+      [
+        15.0,
+        10.0,
+        0.0
+      ],
+      [
+        20.0,
+        10.0,
+        0.0
+      ],
+      [
+        25.0,
+        10.0,
+        0.0
+      ]
+    ],
+    "weather_preset": "sunny"
+  },
+  "_metadata": {
+    "source_event_id": "04akO6mLeIFQRjbq9XwT71QNx0IJ0sTy/dangerous_event_1",
+    "generation_timestamp": "2025-06-20T02:11:45.752187",
+    "risk_score": 1.9000000000000001,
+    "complexity": "high"
+  }
+}
